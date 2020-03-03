@@ -1,5 +1,6 @@
 import React from "react";
 import Login from "./components/Login.js";
+import Logout from "./components/Logout.js";
 import "./App.css";
 import { connect } from "react-redux";
 import { getCurrentUser } from "./actions/currentUser.js";
@@ -9,8 +10,13 @@ class App extends React.Component {
     this.props.getCurrentUser();
   }
   render() {
-    return <Login />;
+    return this.props.currentUser ? <Logout /> : <Login />;
   }
 }
 
-export default connect(null, { getCurrentUser })(App);
+// I can do this because I know the incoming argumetn is an object, state, coming from redux
+const mapStateToProps = ({ currentUser }) => {
+  return { currentUser };
+};
+
+export default connect(mapStateToProps, { getCurrentUser })(App);
