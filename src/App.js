@@ -1,9 +1,16 @@
 import React from "react";
-import logo from "./logo.svg";
+import Login from "./components/Login.js";
 import "./App.css";
+import { connect } from "react-redux";
+import { getCurrentUser } from "./actions/currentUser.js";
 
-function App() {
-  return "hello, I'm a React Satisfiers App";
+class App extends React.Component {
+  componenetDidMount() {
+    this.props.getCurrentUser();
+  }
+  render() {
+    return <Login />;
+  }
 }
 
-export default App;
+export default connect(null, { getCurrentUser })(App);
