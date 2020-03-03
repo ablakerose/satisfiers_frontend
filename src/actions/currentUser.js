@@ -6,9 +6,14 @@ export const setCurrentUser = user => {
   };
 };
 
+export const clearCurrentUser = () => {
+  return {
+    type: "CLEAR_CURRENT_USER"
+  };
+};
+
 // async action creators
 export const login = credentials => {
-  console.log("credentials are", credentials);
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -28,6 +33,17 @@ export const login = credentials => {
         }
       })
       .catch();
+  };
+};
+
+export const logout = () => {
+  return dispatch => {
+    dispatch(clearCurrentUser());
+    //choosing to logout user on the front end BEFORE getting response from backend
+    return fetch("http://localhost:3001/api/v1/logout", {
+      credentials: "include",
+      method: "DELETE"
+    });
   };
 };
 
