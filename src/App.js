@@ -1,22 +1,22 @@
 import React from "react";
-import Login from "./components/Login.js";
-import Logout from "./components/Logout.js";
 import "./App.css";
 import { connect } from "react-redux";
 import { getCurrentUser } from "./actions/currentUser.js";
+import NavBar from "./components/NavBar.js";
+import MainContainer from "./components/MainContainer.js";
 
 class App extends React.Component {
   componenetDidMount() {
     this.props.getCurrentUser();
   }
   render() {
-    return this.props.currentUser ? <Logout /> : <Login />;
+    return (
+      <div className="App">
+        <NavBar />
+        <MainContainer />
+      </div>
+    );
   }
 }
 
-// I can do this because I know the incoming argumetn is an object, state, coming from redux
-const mapStateToProps = ({ currentUser }) => {
-  return { currentUser };
-};
-
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default App;
