@@ -4,9 +4,13 @@ import { logout } from "../actions/currentUser.js";
 
 const Logout = ({ logout }) => {
   return (
-    <form onSubmit={logout}>
-      <input type="submit" value="Log Out" />
-    </form>
+    <div className="ui segment">
+      <form className="ui form" onSubmit={logout}>
+        <div className="field">
+          <input type="submit" value="Log Out" />
+        </div>
+      </form>
+    </div>
   );
 };
 
