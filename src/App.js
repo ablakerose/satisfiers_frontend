@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { getCurrentUser } from "./actions/currentUser.js";
 import NavBar from "./components/NavBar.js";
 import MainContainer from "./components/MainContainer.js";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import Login from "./components/Login.js";
+import Home from "./components/Home.js";
 import Signup from "./components/Signup.js";
 import MyNeeds from "./components/MyNeeds.js";
 
@@ -16,19 +17,30 @@ class App extends React.Component {
     //can call it wherever i need a reference to the currentUser
   }
   render() {
+    const { loggedIn } = this.props;
     return (
-      <Router>
-        <div className="App">
-          <Logout />
-          <NavBar />
+      <div className="App">
+        <NavBar />
+        {/* render can take a function. Ternary below says if return of loggedIn is true, will show Needs page, otherwise, shows Home page to log in or sign up */}
+        <Route
+          exact
+          path="/"
+          render={() => (loggedIn ? <MyNeeds /> : <Home />)}
+        />
 
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/ my-needs" component={MyNeeds} />
-        </div>
-      </Router>
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/ my-needs" component={MyNeeds} />
+        <Route exact path="/ satisfiers/new" component={MySatisfiers} />
+      </div>
     );
   }
 }
 
-export default connect(null, { getCurrentUser })(App);
+const MapStateToProps = state => {
+  return {
+    loggedIn: !!state.currentUser
+  };
+};
+
+export default withRouter(connect(MapStateToProps, { getCurrentUser })(App));

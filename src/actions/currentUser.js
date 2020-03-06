@@ -17,7 +17,7 @@ export const clearCurrentUser = () => {
 };
 
 // async action creators
-export const login = credentials => {
+export const login = (credentials, history) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -36,13 +36,14 @@ export const login = credentials => {
           dispatch(setCurrentUser(user));
           dispatch(getMyNeeds());
           dispatch(resetLoginForm());
+          history.push("/");
         }
       })
       .catch();
   };
 };
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
   return dispatch => {
     //problem: only letting top level "user" with properties of "name" or "username" to come through
     //instead of passing along the raw object, passing object below with top-level key of user that points
@@ -70,6 +71,7 @@ export const signup = credentials => {
           dispatch(setCurrentUser(user));
           dispatch(getMyNeeds());
           dispatch(resetSignupForm());
+          history.push("/");
         }
       })
       .catch();
