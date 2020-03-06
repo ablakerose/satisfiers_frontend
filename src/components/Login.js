@@ -20,23 +20,29 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        placeholder="username"
-        value={loginFormData.username}
-        name="username"
-        type="text"
-        onChange={handleInputChange}
-      />
-      <input
-        placeholder="password"
-        value={loginFormData.password}
-        name="password"
-        type="text"
-        onChange={handleInputChange}
-      />
-      <input type="submit" value="Log In" />
-    </form>
+    <div className="ui segment">
+      <form className="ui form" onSubmit={handleSubmit}>
+        <div className="field">
+          <input
+            placeholder="username"
+            value={loginFormData.username}
+            name="username"
+            type="text"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="field">
+          <input
+            placeholder="password"
+            value={loginFormData.password}
+            name="password"
+            type="text"
+            onChange={handleInputChange}
+          />
+        </div>
+        <input type="submit" value="Log In" />
+      </form>
+    </div>
   );
 };
 
