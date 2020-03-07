@@ -1,6 +1,6 @@
 import React from "react";
-import MyNeeds from "./MyNeeds.js";
-import NeedsBars from "./NeedsBars.js";
+import MyNeeds from "./bottomContainer/MyNeeds.js";
+import NeedsBars from "./bottomContainer/NeedsBars.js";
 import { connect } from "react-redux";
 
 const MainContainer = ({ currentUser }) => {

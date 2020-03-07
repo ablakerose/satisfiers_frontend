@@ -1,10 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const NavBar = ({ currentUser }) => {
   return (
-    <div className="NavBar">
-      {currentUser ? <strong>Welcome, {currentUser.name}</strong> : ""}
+    <div className="ui secondary pointing menu">
+      <Link to="/" className="item">
+        MyNeedsSatisfiersPage
+      </Link>
+      <div className="right menu">
+        {currentUser ? <strong>Welcome, {currentUser.name}</strong> : ""}
+      </div>
+      <Link to="/" className="item">
+        AllNeeds
+      </Link>
     </div>
   );
 };

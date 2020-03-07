@@ -1,14 +1,14 @@
 import React from "react";
-import NeedCard from "./NeedCard.js";
+import NeedCard from "../NeedCard.js";
 import { connect } from "react-redux";
 
 const MyNeeds = props => {
-  console.log(props);
-  const needCards =
-    props.needs.length > 0
-      ? props.needs.map(n => <NeedCard need={n} key={n.id} />)
-      : [];
-  return needCards;
+  // console.log(props);
+  // const needCards =
+  //   props.needs.length > 0
+  //     ? props.needs.map(n => <NeedCard need={n} key={n.id} />)
+  //     : [];
+  // return needCards;
 };
 
 const mapStateToProps = state => {

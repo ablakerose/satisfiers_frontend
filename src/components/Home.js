@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./Login.js";
 import Signup from "./Signup.js";
 import { Link } from "react-router-dom";
-import NeedsBars from "./NeedsBars.js";
+import NeedsBars from "./bottomContainer/NeedsBars.js";
 
 const Home = ({}) => (
   <div>
