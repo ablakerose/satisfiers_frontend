@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginForm.js";
-import { resetSignupForm } from "./signupForm.js";
-import { getMyNeeds } from "./myNeeds.js";
+//import { resetSignupForm } from "./signupForm.js";
+import { getMySatisfiers } from "./mySatisfiers.js";
 
 // syncronous action creators
 export const setCurrentUser = user => {
@@ -34,7 +34,7 @@ export const login = (credentials, history) => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user));
-          dispatch(getMyNeeds());
+          dispatch(getMySatisfiers());
           dispatch(resetLoginForm());
           history.push("/");
         }
@@ -61,16 +61,16 @@ export const signup = (credentials, history) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(credentials)
-      //passing in credentials from the argument in the arrow function above.
     })
       .then(resp => resp.json())
       .then(user => {
+        //console.log(user);
         if (user.error) {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user));
-          dispatch(getMyNeeds());
-          dispatch(resetSignupForm());
+          // dispatch(getMySatisfiers());
+          // dispatch(resetSignupForm());
           history.push("/");
         }
       })
@@ -104,7 +104,7 @@ export const getCurrentUser = () => {
           alert(user.error);
         } else {
           dispatch(setCurrentUser(user));
-          dispatch(getMyNeeds());
+          dispatch(getMySatisfiers());
         }
       })
       .catch();

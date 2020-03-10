@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { updateSignupForm } from "../actions/signupForm.js";
 import { signup } from "../actions/currentUser.js";
 
-//passing in destructured props to the Login function
 const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -16,6 +15,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    //    signupFormData.pwd = signupFormData.password;
     signup(signupFormData, history);
   };
 
