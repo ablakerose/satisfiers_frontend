@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+DEPENDENCES
+https://github.com/mui-org/material-ui
+npm install @material-ui/core
+
+https://github.com/erikras/redux-form-material-ui
+npm install --save redux-form-material-ui
