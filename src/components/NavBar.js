@@ -1,18 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+//import Logout from "./Logout.js";
 
 const NavBar = ({ currentUser }) => {
   return (
     <div className="ui secondary pointing menu">
       <Link to="/" className="item">
-        MyNeedsSatisfiersPage
+        {currentUser ? "MyNeedsSatisfiersPage" : ""}
       </Link>
-      <div className="right menu">
-        {currentUser ? <strong>Welcome, {currentUser.name}</strong> : ""}
+
+      <div className="ui secondary pointing menu">
+        {currentUser ? <h5>Welcome, {currentUser.name}</h5> : ""}
       </div>
+
+      <Link to="/logout"> Log Out </Link>
+      {/* <div> {currentUser ? <Link to="/logout"> Log Out </Link> : ""}</div> */}
+
       <Link to="/" className="item">
-        AllNeeds
+        {currentUser ? "AllNeeds" : ""}
       </Link>
     </div>
   );

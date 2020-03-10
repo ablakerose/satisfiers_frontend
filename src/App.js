@@ -3,17 +3,21 @@ import "./App.css";
 import { connect } from "react-redux";
 import { getCurrentUser } from "./actions/currentUser.js";
 import NavBar from "./components/NavBar.js";
-import MainContainer from "./components/MainContainer.js";
-import { Route, Switch, withRouter } from "react-router-dom";
+//import MainContainer from "./components/MainContainer.js";
+import { Route, withRouter } from "react-router-dom";
 import Login from "./components/Login.js";
+import Logout from "./components/Logout.js";
 import Home from "./components/Home.js";
 import Signup from "./components/Signup.js";
-//import MyNeeds from "./components/bottomContainer/MyNeeds.js";
-import NeedCreate from "./components/bottomContainer/NeedCreate.js";
-import NeedEdit from "./components/bottomContainer/NeedEdit.js";
-import NeedDelete from "./components/bottomContainer/NeedDelete.js";
-import NeedList from "./components/bottomContainer/NeedList.js";
-import NeedShow from "./components/bottomContainer/NeedShow.js";
+import SatisfiersContainer from "./container/SatisfierContainer.js";
+
+//import MySatisfiers from "./components/bottomContainer/MySatisfiers.js";
+
+// import SatisfierCreate from "./components/Satisfiers/SatisfierCreate.js";
+// import SatisfierEdit from "./components/Satisfiers/SatisfierEdit.js";
+// import SatisfierDelete from "./components/Satisfiers/SatisfierDelete.js";
+// import SatisfierContainer from "./container/SatisfierContainer.js";
+// import SatisfierShow from "./components/Satisfiers/SatisfierShow.js";
 
 class App extends React.Component {
   componenetDidMount() {
@@ -26,23 +30,22 @@ class App extends React.Component {
     return (
       <div className="ui container">
         <NavBar />
+        <SatisfiersContainer />
         {/* render can take a function. Ternary below says if return of loggedIn is true, will show Needs page, otherwise, shows Home page to log in or sign up */}
-        <Route
+        {/* <Route
           exact
           path="/"
-          render={() => (loggedIn ? <NeedList /> : <Home />)}
-        />
-
+          render={() => (loggedIn ? <SatisfierContainer /> : <Home />)}
+        /> */}
+        <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        {/*<Route exact path="/ my-needs" component={MyNeeds} />
-        {/*<Route exact path="/ satisfiers/new" component={MySatisfiers} />
-        {/* <Route exact path= "my-needs" component={MySatisfiers}/>  */}
-        {/*<Route exact path="/" component={NeedList} />*/}
-        <Route exact path="/needs/new" component={NeedCreate} />
-        <Route exact path="/needs/edit" component={NeedEdit} />
-        <Route exact path="/needs/delete" component={NeedDelete} />
-        <Route exact path="/needs/show" component={NeedShow} />
+
+        {/* <Route exact path="/" component={SatisfierContainer} />
+        <Route exact path="/Satisfiers/new" component={SatisfierCreate} />
+        <Route exact path="/Satisfiers/edit" component={SatisfierEdit} />
+        <Route exact path="/Satisfiers/delete" component={SatisfierDelete} />
+        <Route exact path="/Satisfiers/show" component={SatisfierShow} /> */}
       </div>
     );
   }
