@@ -1,14 +1,13 @@
 import React from "react";
+import _ from "underscore";
 
 const Satisfiers = props => {
   return (
     <div>
       {" "}
       {props.satisfiers.map(satisfier => (
-        <ul class="ui bulleted list">
-          <li key={satisfier.id} class="item">
-            {satisfier.activity}
-          </li>
+        <ul className="ui bulleted list">
+          <li className="item">{satisfier.activity}</li>
         </ul>
       ))}
     </div>

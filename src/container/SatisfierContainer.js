@@ -19,7 +19,7 @@ class SatisfierContainer extends React.Component {
     return (
       <div>
         <div>Satisfier List </div>
-        <SatisfierInput />
+        <SatisfierInput /> <br></br>
         <Satisfiers satisfiers={this.props.satisfiers} />
       </div>
     );
