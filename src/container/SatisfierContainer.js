@@ -6,11 +6,10 @@ import Satisfiers from "../components/Satisfiers/Satisfiers.js";
 
 class SatisfierContainer extends React.Component {
   componentDidMount() {
+    console.log(this.props.satisfiers);
     this.props.getMySatisfiers();
     //commenting the above out will no longer allow redux to hold this state.
     //the fetch request is necessary to hold the state
-
-    //
   }
 
   render() {

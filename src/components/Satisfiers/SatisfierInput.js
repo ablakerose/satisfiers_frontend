@@ -19,6 +19,7 @@ class SatisfierInput extends React.Component {
     event.preventDefault();
     this.props.createSatisfier(this.state);
     // the new state we set with handleChange is passed in as an argument to the createSatisfier
+    this.setState({ activity: "", value: "" });
   };
 
   render() {
@@ -44,14 +45,6 @@ class SatisfierInput extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <input
-            type="integer"
-            name="user_id"
-            placeholder="user_id"
-            value={this.state.user_id}
-            onChange={this.handleChange}
-          />
-
           <input type="submit" />
         </form>
       </div>

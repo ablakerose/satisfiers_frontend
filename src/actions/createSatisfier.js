@@ -1,3 +1,10 @@
+export const addSatisfier = satisfier => {
+  return {
+    type: "ADD_SATISFIER",
+    satisfier
+  };
+};
+
 export const createSatisfier = formValues => {
   //the formValues is the argument 'this.state' sent in from handleSubmit
   return dispatch => {
@@ -9,8 +16,6 @@ export const createSatisfier = formValues => {
       body: JSON.stringify(formValues)
     })
       .then(resp => resp.json())
-      .then(satisfier =>
-        dispatch({ type: "ADD_SATISFIER", payload: satisfier })
-      );
+      .then(satisfier => dispatch(addSatisfier(satisfier)));
   };
 };

@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import currentUser from "./reducers/currentUser.js";
 import loginForm from "./reducers/loginForm.js";
 import satisfierReducer from "./reducers/satisfierReducer.js";
+import needReducer from "./reducers/needReducer.js";
 import signupForm from "./reducers/signupForm.js";
 import { reducer as formReducer } from "redux-form";
 import logger from "redux-logger";
@@ -13,6 +14,7 @@ const reducer = combineReducers({
   loginForm,
   signupForm,
   satisfierReducer,
+  needReducer,
   form: formReducer
 });
 
