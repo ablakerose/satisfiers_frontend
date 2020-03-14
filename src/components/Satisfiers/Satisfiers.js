@@ -5,7 +5,6 @@ import SatisfierCardPerNeed from "./SatisfierCardPerNeed";
 const Satisfiers = props => {
   return (
     <div>
-      {" "}
       {props.satisfiers.map((satisfier, i) => (
         <ul key={i}>
           <li className="item">
@@ -15,6 +14,7 @@ const Satisfiers = props => {
       ))}
     </div>
   );
+
   //
   //what props does is it creates
 };

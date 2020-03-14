@@ -1,5 +1,4 @@
 import React from "react";
-import MySatisfiers from "./bottomContainer/MySatisfiers.js";
 import NeedsBars from "./bottomContainer/NeedsBars.js";
 import { connect } from "react-redux";
 

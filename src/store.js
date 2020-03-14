@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import currentUser from "./reducers/currentUser.js";
 import loginForm from "./reducers/loginForm.js";
-import satisfierReducer from "./reducers/satisfierReducer.js";
-import needReducer from "./reducers/needReducer.js";
+import satisfiers from "./reducers/satisfiers.js";
+import needs from "./reducers/needs.js";
 import signupForm from "./reducers/signupForm.js";
 import { reducer as formReducer } from "redux-form";
 import logger from "redux-logger";
@@ -13,8 +13,8 @@ const reducer = combineReducers({
   currentUser,
   loginForm,
   signupForm,
-  satisfierReducer,
-  needReducer,
+  satisfiers,
+  needs,
   form: formReducer
 });
 

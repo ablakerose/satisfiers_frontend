@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { getMySatisfiers } from "../actions/mySatisfiers.js";
 import SatisfierInput from "../components/Satisfiers/SatisfierInput.js";
-import Satisfiers from "../components/Satisfiers/Satisfiers.js";
+//import Satisfiers from "../components/Satisfiers/Satisfiers.js";
+//import SatisfierCreate from "../components/Satisfiers/SatisfierCreate.js";
 
 class SatisfierContainer extends React.Component {
   componentDidMount() {
-    console.log(this.props.satisfiers);
     this.props.getMySatisfiers();
     //commenting the above out will no longer allow redux to hold this state.
     //the fetch request is necessary to hold the state
@@ -17,9 +17,9 @@ class SatisfierContainer extends React.Component {
 
     return (
       <div>
-        <div>Satisfier List </div>
+        <div> </div>
         <SatisfierInput /> <br></br>
-        <Satisfiers satisfiers={this.props.satisfiers} />
+        {/*<Satisfiers satisfiers={this.props.satisfiers} />*/}
       </div>
     );
   }
@@ -27,9 +27,15 @@ class SatisfierContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    satisfiers: state.satisfierReducer.satisfiers
+    satisfiers: state.satisfiers
   };
 };
-export default connect(mapStateToProps, { getMySatisfiers })(
-  SatisfierContainer
-);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getMySatisfiers: () => {
+      dispatch(getMySatisfiers());
+    }
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SatisfierContainer);

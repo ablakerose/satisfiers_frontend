@@ -1,7 +1,7 @@
-export default (state = { needs: [] }, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case "LIST_NEEDS":
-      return { needs: action.needs };
+      return action.needs;
 
     //the action is from the switch and the .needs is bc I did needs: needs, so that is the KEY of the payload object.
 

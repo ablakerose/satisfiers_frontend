@@ -6,15 +6,14 @@ import Needs from "../components/Needs/Needs.js";
 class NeedContainer extends React.Component {
   componentDidMount() {
     this.props.fetchNeeds();
-    console.log(this.props.needs);
   }
 
   render() {
     return (
       <div>
-        // <div>Need List </div>
-        //
-        <Needs needs={console.log(this.props.needs)} />
+        <div>Need List </div>
+
+        <Needs needs={this.props.needs} />
       </div>
     );
   }
@@ -24,7 +23,7 @@ const mapStateToProps = state => {
   //the state is our state from the redux store
   //give this component acces through props to the needs in our state.
   return {
-    needs: state.needReducer.needs
+    needs: state.needs
   };
 };
 export default connect(mapStateToProps, { fetchNeeds })(NeedContainer);

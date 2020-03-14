@@ -3,7 +3,22 @@ import { connect } from "react-redux";
 import { createSatisfier } from "../../actions/createSatisfier.js";
 
 class SatisfierInput extends React.Component {
-  state = { activity: "", value: "" };
+  state = { activity: "", value: "", need_ids: [] };
+
+  handleCheckedBox = e => {
+    //this.setState({ needIds: [...this.state.needIds, e.target.value] });
+    const value = e.target.value;
+    const need_ids = [...this.state.need_ids];
+    const index = need_ids.indexOf(value);
+    if (index > -1) {
+      need_ids.splice(index, 1);
+    } else {
+      need_ids.push(value);
+    }
+    this.setState({
+      need_ids
+    });
+  };
 
   handleChange = event => {
     this.setState({
@@ -19,7 +34,29 @@ class SatisfierInput extends React.Component {
     event.preventDefault();
     this.props.createSatisfier(this.state);
     // the new state we set with handleChange is passed in as an argument to the createSatisfier
-    this.setState({ activity: "", value: "" });
+    this.setState({ activity: "", value: "", need_ids: [] });
+  };
+
+  // function handleNeedName(props) {
+  //   needs.map(need => need.name);
+  // };
+
+  renderNeedCheckBoxes = () => {
+    return this.props.needs.map((need, i) => {
+      //iterate over this.props.needs
+      //in map, return  a checkbox input that contains that need's name and id
+      return (
+        <div key={i}>
+          <label htmlFor={need.name}>{need.name}</label>
+          <input
+            name={need.name}
+            type="checkbox"
+            value={need.id}
+            onChange={this.handleCheckedBox}
+          />
+        </div>
+      );
+    });
   };
 
   render() {
@@ -45,6 +82,8 @@ class SatisfierInput extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
+          <br></br>Associated Need <br></br>
+          {this.renderNeedCheckBoxes()}
           <input type="submit" />
         </form>
       </div>
@@ -52,4 +91,13 @@ class SatisfierInput extends React.Component {
   }
 }
 
-export default connect(null, { createSatisfier })(SatisfierInput);
+/* //PSEUDO-CODE
+//</div>mapStateToProps to access 
+// needs: state.needs
+// use this prop to render the checkbox on the form */
+
+const mapStateToProps = state => {
+  return { needs: state.needs };
+};
+
+export default connect(mapStateToProps, { createSatisfier })(SatisfierInput);
