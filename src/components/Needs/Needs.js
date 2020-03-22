@@ -5,11 +5,11 @@ const Needs = props => {
   return (
     <div>
       {props.needs.map((need, i) => (
-        <ul key={i}>
-          <li className="item">
+        <div key={i}>
+          <div className="item">
             <NeedCard need={need} />
-          </li>
-        </ul>
+          </div>
+        </div>
       ))}
     </div>
   );

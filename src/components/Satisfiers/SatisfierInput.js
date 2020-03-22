@@ -6,7 +6,6 @@ class SatisfierInput extends React.Component {
   state = { activity: "", value: "", need_ids: [] };
 
   handleCheckedBox = e => {
-    //this.setState({ needIds: [...this.state.needIds, e.target.value] });
     const value = e.target.value;
     const need_ids = [...this.state.need_ids];
     const index = need_ids.indexOf(value);
@@ -36,10 +35,6 @@ class SatisfierInput extends React.Component {
     // the new state we set with handleChange is passed in as an argument to the createSatisfier
     this.setState({ activity: "", value: "", need_ids: [] });
   };
-
-  // function handleNeedName(props) {
-  //   needs.map(need => need.name);
-  // };
 
   renderNeedCheckBoxes = () => {
     return this.props.needs.map((need, i) => {
@@ -74,6 +69,7 @@ class SatisfierInput extends React.Component {
             onChange={this.handleChange}
           />
           <br></br>
+          <br></br>
           <label> Value </label>
           <input
             type="integer"
@@ -82,7 +78,7 @@ class SatisfierInput extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <br></br>Associated Need <br></br>
+          <br></br>Select Associated Needs <br></br>
           {this.renderNeedCheckBoxes()}
           <input type="submit" />
         </form>

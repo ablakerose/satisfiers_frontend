@@ -1,21 +1,20 @@
-export const addSatisfier = satisfier => {
+export const addSatisfier = needs => {
   return {
-    type: "ADD_SATISFIER",
-    satisfier
+    type: "ADD_SATISFIER_TO_NEEDS",
+    needs
   };
 };
 
-export const createSatisfier = formValues => {
-  //the formValues is the argument 'this.state' sent in from handleSubmit
+export const createSatisfier = satisfier => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/satisfiers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(formValues)
+      body: JSON.stringify({ satisfier: satisfier })
     })
       .then(resp => resp.json())
-      .then(satisfier => dispatch(addSatisfier(satisfier)));
+      .then(needs => dispatch(addSatisfier(needs)));
   };
 };
