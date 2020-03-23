@@ -1,6 +1,6 @@
 export default (state = [], action) => {
   switch (action.type) {
-    case "SET_MY_SATISFIERS":
+    case "LIST_SATISFIERS":
       return action.satisfiers[0];
     // whatever we return from our reducer is our new redux state
     // this will be our state that we access in any component that we access

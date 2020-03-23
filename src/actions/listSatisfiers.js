@@ -1,18 +1,18 @@
 // syncronous action creators
-export const setMySatisfiers = satisfiers => {
+export const listSatisfiers = satisfiers => {
   return {
-    type: "SET_MY_SATISFIERS",
+    type: "LIST_SATISFIERS",
     satisfiers: satisfiers
   };
 };
 
 // async actions
-export const getMySatisfiers = () => {
+export const fetchSatisfiers = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/satisfiers")
       .then(resp => resp.json())
-      .then(satisfiers => dispatch(setMySatisfiers([satisfiers])));
-    // here dispatching the action object (setMySatisfiers defined above) to the reducer
+      .then(satisfiers => dispatch(listSatisfiers([satisfiers])));
+    // here dispatching the action object (listSatisfiers defined above) to the reducer
     // if want to see what it looks like, put debugger just before switch in the satisfiers reducer
   };
 };

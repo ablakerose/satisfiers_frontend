@@ -9,6 +9,9 @@ class SatisfierInput extends React.Component {
     const value = e.target.value;
     const need_ids = [...this.state.need_ids];
     const index = need_ids.indexOf(value);
+    // console.log("value", value);
+    // console.log("need_ids", need_ids);
+    // console.log("index", index);
     if (index > -1) {
       need_ids.splice(index, 1);
     } else {
@@ -23,6 +26,7 @@ class SatisfierInput extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
       //this function works for both inputs on the form below
+      //using the NAME property of the form below-- name of the input (name="activity" or name="(satisifer)value")
       //taking the name and value from the EVENT object and use those key/value pairs to set state
       // the reason we need brackets around the e.tar.name bc within an object can't have periods in key
       // brackets allows that to be read first in entirety and set its as a key
@@ -33,7 +37,9 @@ class SatisfierInput extends React.Component {
     event.preventDefault();
     this.props.createSatisfier(this.state);
     // the new state we set with handleChange is passed in as an argument to the createSatisfier
+    //the createSatisfier has a placeholder argumetn "satisfier". We're invoking the function here and using this.state as argument
     this.setState({ activity: "", value: "", need_ids: [] });
+    //this resets the form values back to empty after submitting the form
   };
 
   renderNeedCheckBoxes = () => {
@@ -86,11 +92,6 @@ class SatisfierInput extends React.Component {
     );
   }
 }
-
-/* //PSEUDO-CODE
-//</div>mapStateToProps to access 
-// needs: state.needs
-// use this prop to render the checkbox on the form */
 
 const mapStateToProps = state => {
   return { needs: state.needs };

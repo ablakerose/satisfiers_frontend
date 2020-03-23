@@ -1,14 +1,12 @@
 import React from "react";
+import NeedContainer from "../container/NeedContainer.js";
 
-//import { Link } from "react-router-dom";
-//import NeedsBars from "./bottomContainer/NeedsBars.js";
+const Home = () => {
+  return (
+    <div className="ui container">
+      <NeedContainer />
+    </div>
+  );
+};
 
-const Home = () => (
-  <div>
-    <h4>
-      {/* Welcome, <Link to="/signup"> Sign Up </Link> or{" "}
-      <Link to="/login"> Log In </Link> */}
-    </h4>
-  </div>
-);
 export default Home;
