@@ -1,17 +1,21 @@
 import React from "react";
+import { Progress } from "semantic-ui-react";
 
 const NeedWorth = props => {
-  const levelTotal = () => {
-    return props.need.satisfiers.reduce(
+  const levelTotalPercentage = () => {
+    const total = props.need.satisfiers.reduce(
       (sum, satisfier) => sum + satisfier.value,
       0
     );
+    return total * 10;
   };
 
   return (
     <div>
       <ul>
-        <p>{levelTotal()}</p>
+        {/* <NeedBar need={props.need} /> */}
+
+        <Progress percent={levelTotalPercentage()} indicating />
       </ul>
     </div>
   );

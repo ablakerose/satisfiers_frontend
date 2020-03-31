@@ -8,10 +8,14 @@ class NavBar extends React.Component {
         <Link to="/" exact className="item">
           Home
         </Link>
+
         <Link to="/about" exact className="item">
           About
         </Link>
-        <Link to="/createSatisfier" exact className="item">
+        <Link to="/needs" exact className="item">
+          Needs
+        </Link>
+        <Link to="/satisfier/new" exact className="item">
           Add An Activity
         </Link>
       </div>

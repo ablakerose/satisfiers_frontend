@@ -1,31 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchNeeds } from "../actions/listNeeds.js";
-import Needs from "../components/Needs/Needs.js";
+import { fetchNeed } from "../actions/setNeed.js";
+import SatisfierDetails from "../components/Needs/SatisfierDetails.js";
 
 class NeedContainer extends React.Component {
   componentDidMount() {
-    this.props.fetchNeeds();
+    this.props.fetchNeed(this.props.match.params.id);
   }
 
   render() {
     return (
       <div>
-        <h2> My Needs </h2>
-
-        <Needs needs={this.props.needs} />
+        <h2> Satisfiers for {this.props.need.name} </h2>
+        <ul>
+          {this.props.need.name && <SatisfierDetails need={this.props.need} />}
+        </ul>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  //the state is our state from the redux store
-  //give this component acces through props to the needs in our state.
   return {
-    needs: state.needs
+    need: state.need
   };
 };
-export default connect(mapStateToProps, { fetchNeeds })(NeedContainer);
-
-//putting fetchNeeds here (or mapping dispatch to props) is connecting
+export default connect(mapStateToProps, { fetchNeed })(NeedContainer);
