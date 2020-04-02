@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import NavBar from "./components/NavBar.js";
 import About from "./components/About.js";
 import NeedsDisplay from "./components/NeedsDisplay.js";
@@ -21,7 +19,6 @@ class App extends React.Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/satisfier/new" component={AddAnActivity} />
           <Route exact path="/needs/:id" component={NeedContainer} />
-          {/* <Route exact path="/needs/1/info" component={ProtectionComponent} /> */}
         </Router>
       </div>
     );

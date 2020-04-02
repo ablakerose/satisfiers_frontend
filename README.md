@@ -1,21 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# README
 
-In the project directory, you can run:
+Needs and Satisfiers
 
-### `yarn start`
+Welcome to Needs and Satisfiers! Needs and Satisfiers is intended to provide users with the ability to track their activities and how well these activities satisfy their nine fundamental human needs.
 
-Runs the app in the development mode.<br />
+Installation
+
+Needs and Satisfiers is an application with a rails API backend and a react frontend.  
+It runs on ruby '2.6.1'
+
+From the backend directory: https://github.com/ablakerose/satisfiers_backend
+Run bundle exec rails server to install necessary rails gem files.
+You can find the app by beginning the rails server.
+
+From the front end directory: https://github.com/ablakerose/satisfiers_frontend
+Run npm install
+Tun npm start
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
@@ -73,3 +77,12 @@ npm install @material-ui/core
 
 https://github.com/erikras/redux-form-material-ui
 npm install --save redux-form-material-ui
+
+License
+
+The MIT License (MIT)
+
+Copyright © 2020 <Blakeley Decktor>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

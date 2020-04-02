@@ -21,6 +21,5 @@ export const createSatisfier = satisfier => {
         .then(resp => resp.json())
         .then(needs => dispatch(addSatisfier(needs)))
     );
-    // alt syntx: .then(needs => dispatch({type: 'ADD_SATISFIER_TO_NEEDS', payload: needs}))
   };
 };
