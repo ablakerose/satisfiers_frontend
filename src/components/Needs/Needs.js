@@ -2,7 +2,7 @@ import React from "react";
 import NeedCard from "./NeedCard";
 import { Grid } from "semantic-ui-react";
 
-const Needs = props => {
+const Needs = (props) => {
   const colors = [
     "red",
     "orange",
@@ -12,7 +12,7 @@ const Needs = props => {
     "blue",
     "violet",
     "purple",
-    "pink"
+    "pink",
   ];
 
   const icons = [
@@ -24,7 +24,7 @@ const Needs = props => {
     "eye dropper icon",
     "object group icon",
     "cut icon",
-    "crosshairs icon"
+    "crosshairs icon",
   ];
   return (
     <div>

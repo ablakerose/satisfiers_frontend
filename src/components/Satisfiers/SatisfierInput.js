@@ -5,7 +5,7 @@ import { createSatisfier } from "../../actions/createSatisfier.js";
 class SatisfierInput extends React.Component {
   state = { activity: "", value: "", need_ids: [] };
 
-  handleCheckedBox = e => {
+  handleCheckedBox = (e) => {
     const value = e.target.value;
     const need_ids = [...this.state.need_ids];
     const index = need_ids.indexOf(value);
@@ -15,33 +15,25 @@ class SatisfierInput extends React.Component {
       need_ids.push(value);
     }
     this.setState({
-      need_ids
+      need_ids,
     });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
-      //name refers to name of the input (NAME="activity" or NAME="(satisifer)value")
-      //taking the name and value from the EVENT object and use those key/value pairs to set state
-      // the reason we need brackets around the e.tar.name bc within an object can't have periods in key
-      // brackets allows that to be read first in entirety and set its as a key
+      [event.target.name]: event.target.value,
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.createSatisfier(this.state);
-    // the new state we set with handleChange is passed in as an argument to the createSatisfier
-    //the createSatisfier has a placeholder argumetn "satisfier". We're invoking the function here and using this.state as argument
+
     this.setState({ activity: "", value: "", need_ids: [] });
-    //this resets the form values back to empty after submitting the form
   };
 
   renderNeedCheckBoxes = () => {
     return this.props.needs.map((need, i) => {
-      //iterate over this.props.needs
-      //in map, return  a checkbox input that contains that need's name and id
       return (
         <div key={i}>
           <label htmlFor={need.name}>{need.name}</label>
@@ -72,11 +64,11 @@ class SatisfierInput extends React.Component {
           />
           <br></br>
           <br></br>
-          <label> Value </label>
+          <label> Time Spent </label>
           <input
             type="integer"
             name="value"
-            placeholder="Value"
+            placeholder="(in hours) i.e. 1.25"
             value={this.state.value}
             onChange={this.handleChange}
           />
@@ -89,7 +81,7 @@ class SatisfierInput extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { needs: state.needs };
 };
 

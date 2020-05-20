@@ -2,7 +2,7 @@
 export const listNeeds = needs => {
   return {
     type: "LIST_NEEDS",
-    needs: needs
+    needs
   };
 };
 

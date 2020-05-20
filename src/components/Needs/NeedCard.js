@@ -1,9 +1,6 @@
 import React from "react";
 import NeedLink from "./NeedLink";
 import NeedWorth from "./NeedWorth.js";
-//import { Progress } from "semantic-ui-react";
-
-//import SatisfierDetails from "./SatisfierDetails.js";
 
 const Needcard = props => {
   return (

@@ -11,12 +11,12 @@ class SatisfierDetails extends React.Component {
     return fetch(`http://localhost:3001/api/v1/satisfiers/${id}`, {
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-      .then(resp => resp.json())
-      .then(satisfier => satisfier);
+      .then((resp) => resp.json())
+      .then((satisfier) => satisfier);
   };
 
   render() {
@@ -34,7 +34,7 @@ class SatisfierDetails extends React.Component {
                 <InlineEdit
                   text={satisfier.activity}
                   paramName="activity"
-                  change={data => this.dataChanged(data, satisfier.id)}
+                  change={(data) => this.dataChanged(data, satisfier.id)}
                   placeholder="edit activity"
                 />
               </li>
@@ -46,7 +46,7 @@ class SatisfierDetails extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { need: state.need };
 };
 
